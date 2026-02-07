@@ -2,78 +2,91 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kebab Don Ali</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kebab Palace</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-  <h1>🥙 Kebab Don Ali</h1>
-  <p>El mejor kebab del barrio</p>
-</header>
+  <!-- Header -->
+  <header>
+    <h1>Kebab Palace</h1>
+    <nav>
+      <a href="#menu">Menú</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#ubicacion">Ubicación</a>
+    </nav>
+  </header>
 
-<nav>
-  <a href="#menu">Menu</a>
-  <a href="#horario">Horario</a>
-  <a href="#ubicacion">Ubicacion</a>
-  <a href="#contacto">Contacto</a>
-</nav>
+  <!-- Hero -->
+  <section class="hero">
+    <h2>¡El mejor kebab de la ciudad!</h2>
+    <button onclick="alert('Gracias por visitarnos!')">Pedir Ahora</button>
+  </section>
 
-<section class="hero">
-  <h2>Kebabs, Durum y Falafel</h2>
-  <p>Comida rapida halal, recien hecha</p>
-  <a class="btn" href="https://wa.me/34600000000">Pedir por WhatsApp</a>
-</section>
+  <!-- Menú -->
+  <section id="menu">
+    <h2 class="section-title">Nuestro Menú</h2>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1601924582975-d78bb0d7f36e" alt="Kebab clásico">
+        <h3>Kebab Clásico</h3>
+        <p>Delicioso kebab con carne marinada y vegetales frescos.</p>
+        <button>Ordenar</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1599785209707-6a5d6f5d5a1e" alt="Kebab con queso">
+        <h3>Kebab con Queso</h3>
+        <p>Con extra de queso fundido que hará agua tu boca.</p>
+        <button>Ordenar</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.unsplash.com/photo-1617196031792-4c72d6a8e5f0" alt="Kebab vegano">
+        <h3>Kebab Vegano</h3>
+        <p>Hecho con proteína vegetal y vegetales frescos.</p>
+        <button>Ordenar</button>
+      </div>
+    </div>
+  </section>
 
-<section id="menu">
-  <h2>Menu</h2>
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2 class="section-title">Contáctanos</h2>
+    <div class="contact-form">
+      <form onsubmit="alert('Formulario enviado!'); return false;">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-  <div class="menu-item">
-    <h3>Kebab mixto</h3>
-    <span>5,50 €</span>
-  </div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-  <div class="menu-item">
-    <h3>Durum de pollo</h3>
-    <span>6,00 €</span>
-  </div>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-  <div class="menu-item">
-    <h3>Falafel vegetariano</h3>
-    <span>5,00 €</span>
-  </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
 
-  <p class="nota">Bebida +1,50 €</p>
-</section>
+  <!-- Ubicación -->
+  <section id="ubicacion">
+    <h2 class="section-title">Encuéntranos Aquí</h2>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.2381471746696!2d-2.444904484608654!3d42.46248697918753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd58864ca23c9d91%3A0x61b42a0e5679f6ff!2sLogro%C3%B1o!5e0!3m2!1ses!2ses!4v1685694852791!5m2!1ses!2ses"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+  </section>
 
-<section id="horario" class="light">
-  <h2>Horario</h2>
-  <p>Lunes a Domingo</p>
-  <p>12:00 – 16:00 / 19:00 – 00:00</p>
-</section>
-
-<section id="ubicacion">
-  <h2>Donde estamos</h2>
-  <p>Calle Mayor 12, Logrono</p>
-
-  <iframe
-    src="https://www.google.com/maps?q=Calle%20Mayor%2012%20Logroño&output=embed"
-    loading="lazy">
-  </iframe>
-</section>
-
-<section id="contacto" class="light">
-  <h2>Contacto</h2>
-  <p>📞 600 000 000</p>
-  <p>📍 Recogida en local</p>
-
-  <a class="btn" href="tel:+34600000000">Llamar</a>
-</section>
-
-<footer>
-  <p>© 2026 Kebab Don Ali</p>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Kebab Palace. Síguenos en 
+      <a href="#">Instagram</a> | <a href="#">Facebook</a>
+    </p>
+  </footer>
 
 </body>
 </html>
