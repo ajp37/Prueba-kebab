@@ -5,24 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kebab Palace</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- Header -->
   <header>
-    <h1>Kebab Palace</h1>
-    <nav>
-      <a href="#menu">Menú</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#ubicacion">Ubicación</a>
-    </nav>
+    <div class="container">
+      <h1>Kebab Palace</h1>
+      <nav>
+        <a href="#menu">Menú</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+    </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
-    <h2>¡El mejor kebab de la ciudad!</h2>
-    <button onclick="alert('Gracias por visitarnos!')">Pedir Ahora</button>
+    <div class="hero-text">
+      <h2>El sabor que te hace volver</h2>
+      <p>Carne marinada, pan recién hecho y ingredientes frescos.</p>
+      <button onclick="alert('Gracias por visitarnos!')">Pedir Ahora</button>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1601924582975-d78bb0d7f36e?auto=format&fit=crop&w=800&q=80" alt="Kebab delicioso">
+    </div>
   </section>
 
   <!-- Menú -->
@@ -30,22 +38,28 @@
     <h2 class="section-title">Nuestro Menú</h2>
     <div class="menu-grid">
       <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1601924582975-d78bb0d7f36e" alt="Kebab clásico">
-        <h3>Kebab Clásico</h3>
-        <p>Delicioso kebab con carne marinada y vegetales frescos.</p>
-        <button>Ordenar</button>
+        <img src="https://images.unsplash.com/photo-1617196031792-4c72d6a8e5f0?auto=format&fit=crop&w=800&q=80" alt="Kebab Clásico">
+        <div class="menu-content">
+          <h3>Kebab Clásico</h3>
+          <p>Carne jugosa, vegetales frescos y salsa especial.</p>
+          <button>Ordenar</button>
+        </div>
       </div>
       <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1599785209707-6a5d6f5d5a1e" alt="Kebab con queso">
-        <h3>Kebab con Queso</h3>
-        <p>Con extra de queso fundido que hará agua tu boca.</p>
-        <button>Ordenar</button>
+        <img src="https://images.unsplash.com/photo-1599785209707-6a5d6f5d5a1e?auto=format&fit=crop&w=800&q=80" alt="Kebab Queso">
+        <div class="menu-content">
+          <h3>Kebab con Queso</h3>
+          <p>Con queso fundido y toppings crujientes.</p>
+          <button>Ordenar</button>
+        </div>
       </div>
       <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1617196031792-4c72d6a8e5f0" alt="Kebab vegano">
-        <h3>Kebab Vegano</h3>
-        <p>Hecho con proteína vegetal y vegetales frescos.</p>
-        <button>Ordenar</button>
+        <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=800&q=80" alt="Kebab Vegano">
+        <div class="menu-content">
+          <h3>Kebab Vegano</h3>
+          <p>Proteína vegetal, vegetales frescos y pan artesanal.</p>
+          <button>Ordenar</button>
+        </div>
       </div>
     </div>
   </section>
@@ -56,13 +70,13 @@
     <div class="contact-form">
       <form onsubmit="alert('Formulario enviado!'); return false;">
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
 
         <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
 
         <button type="submit">Enviar</button>
       </form>
@@ -83,7 +97,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Kebab Palace. Síguenos en 
+    <p>&copy; 2026 Kebab Palace | Síguenos en 
       <a href="#">Instagram</a> | <a href="#">Facebook</a>
     </p>
   </footer>
