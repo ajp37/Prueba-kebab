@@ -3,148 +3,142 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KEBAP ESTAMBUL - Food Restaurant Utrera</title>
+<title>KEBAP ESTAMBUL - Modo Oscuro Animado</title>
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
 
 <style>
-/* --- RESET Y BASES --- */
+/* --- ESTILOS MODO OSCURO --- */
 html { scroll-behavior: smooth; }
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto',sans-serif; }
-body { line-height:1.6; color:#333; overflow-x: hidden; }
+
+body { 
+    line-height:1.6; 
+    color:#e0e0e0; 
+    overflow-x: hidden; 
+    width: 100%; 
+    background-color: #121212; 
+}
+
 a { text-decoration:none; }
 img { max-width:100%; display:block; }
 ul { list-style:none; }
-h1,h2,h3,h4,h5,h6 { margin-bottom:10px; }
+
+/* --- NUEVAS CLASES DE ANIMACIÓN (AJUSTE LENTO) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.0s ease-out; /* Animación más lenta como pediste */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* --- HEADER --- */
 header {
     position: fixed; width: 100%; top: 0; left: 0; z-index: 1000;
-    background: rgba(0,0,0,0.95); padding: 15px 0; color: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: #000; padding: 12px 0; color: #fff;
+    border-bottom: 1px solid #333;
 }
 header .container {
     display: flex; justify-content: space-between; align-items: center;
     width: 90%; max-width: 1200px; margin: auto;
 }
-header .logo img { height: 50px; }
+header .logo img { height: 50px; width: auto; }
 
 /* --- NAV --- */
-nav { position: relative; }
 nav ul { display: flex; gap: 20px; align-items: center; }
-nav ul li a { color: #fff; font-weight: 500; font-size: 15px; transition: 0.3s; text-transform: uppercase; }
+nav ul li a { color: #fff; font-weight: 500; font-size: 14px; transition: 0.3s; text-transform: uppercase; }
 nav ul li a:hover { color: #ff6600; }
-nav .nav-btn a {
-    background: #ff6600; color: #fff; padding: 10px 20px;
-    border-radius: 5px; font-weight: bold; font-size: 16px;
-}
-nav .nav-btn a:hover { background: #fff; color: #ff6600; }
+nav .nav-btn a { background: #ff6600; color: #fff; padding: 10px 15px; border-radius: 5px; font-weight: bold; }
 
-/* --- HAMBURGUESA --- */
-.burger-menu {
-    display: none; flex-direction: column; cursor: pointer; gap: 6px; z-index: 1001;
-}
-.burger-menu span {
-    width: 30px; height: 3px; background: #fff; border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-}
-.burger-menu.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-.burger-menu.active span:nth-child(2) { opacity: 0; }
-.burger-menu.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+.close-menu { display: none; color: #fff; font-size: 35px; position: absolute; top: 20px; right: 20px; cursor: pointer; }
+.burger-menu { display: none; flex-direction: column; cursor: pointer; gap: 6px; }
+.burger-menu span { width: 30px; height: 3px; background: #fff; border-radius: 3px; }
 
 /* --- SLIDER --- */
-.slider { position: relative; overflow: hidden; margin-top: 80px; height: 75vh; }
+.slider-container { width: 100%; overflow: hidden; margin-top: 74px; }
+.slider { position: relative; height: 75vh; width: 100%; }
 #slides { position: relative; width: 100%; height: 100%; }
-#slides li.slide {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0; transition: opacity 1s ease; z-index: 0;
-}
+#slides li.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease; z-index: 0; }
 #slides li.slide.active { opacity: 1; z-index: 1; }
-#slides li.slide img { width: 100%; height: 100%; object-fit: cover; }
+#slides li.slide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8); }
+
 #slides li.slide .caption {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    text-align: center; color: #fff; width: 85%; max-width: 800px; z-index: 2;
-    background: rgba(0, 0, 0, 0.6); padding: 40px 20px; border-radius: 15px; backdrop-filter: blur(2px);
+    text-align: center; color: #fff; width: 85%; max-width: 550px; z-index: 2;
+    background: rgba(0, 0, 0, 0.75); padding: 35px; border-radius: 12px; 
+    backdrop-filter: blur(8px); border: 1px solid #444;
 }
-#slides li.slide .caption h1 {
-    font-family: 'Oswald', sans-serif; font-size: 48px; text-transform: uppercase;
-    margin-bottom: 15px; opacity: 0; animation: fadeInUp 0.8s 0.3s forwards;
+#slides li.slide .caption h1 { font-family: 'Oswald', sans-serif; font-size: 40px; margin-bottom: 10px; text-transform: uppercase; color: #ff6600; }
+#slides li.slide .caption p { font-size: 18px; margin-bottom: 25px; color: #ccc; }
+.btn-slide { background: #ff6600; color: #fff; padding: 12px 30px; border-radius: 5px; font-weight: bold; display: inline-block; transition: 0.3s; }
+
+/* --- SECCIONES --- */
+section { padding: 80px 20px; text-align: center; width: 100%; }
+.inner-section { max-width: 1200px; margin: auto; }
+.section-title { font-family: 'Oswald', sans-serif; font-size: 42px; margin-bottom: 15px; text-transform: uppercase; color: #fff; }
+.section-subtitle { display: block; color: #ff6600; font-weight: bold; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+
+/* Nosotros */
+.about-section { background: #121212; }
+.about-content p { font-size: 19px; color: #bbb; max-width: 850px; margin: auto; line-height: 1.8; }
+
+/* Servicio */
+.how-section { background: #1a1a1a; }
+.how-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; }
+.how-box { 
+    flex: 1 1 300px; 
+    background: #252525; 
+    padding: 40px; 
+    border-radius: 15px; 
+    border: 1px solid #333;
+    transition: 0.3s;
 }
-#slides li.slide .caption p {
-    font-size: 22px; margin-bottom: 30px; opacity: 0; animation: fadeInUp 0.8s 0.6s forwards; font-weight: 300;
-}
-#slides li.slide .caption .btn-slide {
-    background: #ff6600; color: #fff; padding: 12px 35px; font-size: 18px;
-    border-radius: 5px; font-weight: bold; display: inline-block;
-    opacity: 0; animation: fadeInUp 0.8s 0.9s forwards; transition: 0.3s; text-transform: uppercase;
-}
-#slides li.slide .caption .btn-slide:hover { background: #fff; color: #ff6600; }
+.how-box:hover { border-color: #ff6600; transform: translateY(-5px); }
+.how-box i { font-size: 50px; color: #ff6600; margin-bottom: 20px; }
+.how-box h3 { font-family: 'Oswald', sans-serif; margin-bottom: 15px; color: #fff; }
+.how-box p { color: #aaa; }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- SECCIONES COMUNES --- */
-section { padding: 80px 20px; }
-.section-title { font-family: 'Oswald', sans-serif; font-size: 40px; text-align: center; margin-bottom: 10px; text-transform: uppercase; }
-.section-subtitle { text-align: center; font-size: 18px; color: #666; margin-bottom: 50px; display: block; }
-
-/* --- ABOUT --- */
-.about-section { text-align: center; background: #fff; }
-.about-content { max-width: 900px; margin: auto; }
-.btn-red { background: #d32f2f; color: #fff; padding: 12px 30px; border-radius: 4px; transition: 0.3s; display: inline-block; font-weight: bold; text-transform: uppercase;}
-.btn-red:hover { background: #b71c1c; }
-
-/* --- HOW IT WORKS --- */
-.how-section { background: #f8f9fa; text-align: center; }
-.how-grid { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
-.how-box { flex: 1 1 280px; max-width: 350px; background: #fff; padding: 50px 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.how-box i { font-size: 60px; color: #ff6600; margin-bottom: 25px; }
-.how-box h5 { font-size: 22px; font-weight: 700; font-family: 'Oswald', sans-serif; }
-
-/* --- GALLERY --- */
-.gallery-section { background: #fff; }
+/* Carta */
 .gallery-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
-.gallery-img { position: relative; overflow: hidden; border-radius: 10px; flex: 1 1 250px; max-width: 350px; height: 250px; cursor: pointer; }
-.gallery-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-.gallery-img:hover img { transform: scale(1.1); }
-.gallery-img .img-meta { position: absolute; bottom: 0; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); color: #fff; padding: 30px 15px 15px 15px; font-size: 18px; font-family: 'Oswald', sans-serif; }
-
-/* --- BANNER --- */
-.banner-section { background: #ffea00; color: #000; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 40px; padding: 60px 20px; }
-.banner-txt h2 { font-family: 'Oswald', sans-serif; font-size: 38px; }
-.banner-btn { background: #00cc66; color: #fff; padding: 15px 40px; font-weight: bold; border-radius: 50px; display: inline-block; margin-top: 20px; }
-
-/* --- FOOTER / CONTACTO (NUEVO DISEÑO CENTRALIZADO) --- */
-footer { background: #1a1a1a; color: #bbb; padding: 70px 20px 30px; }
-.footer-container {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; max-width: 1200px; margin: auto;
+.gallery-img { position: relative; overflow: hidden; border-radius: 12px; flex: 1 1 320px; height: 300px; border: 1px solid #333; }
+.gallery-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+.gallery-img:hover img { transform: scale(1.1); filter: brightness(1.1); }
+.gallery-img .img-meta { 
+    position: absolute; bottom: 0; left: 0; width: 100%; 
+    background: linear-gradient(transparent, rgba(0,0,0,0.95)); 
+    color: #fff; padding: 30px 20px 15px; 
+    font-family: 'Oswald', sans-serif; font-size: 22px; 
 }
-.footer-col { flex: 1 1 400px; max-width: 500px; }
-.footer-info { flex: 1 1 300px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.footer-info h5 { color: #fff; font-size: 24px; margin-bottom: 20px; font-family: 'Oswald', sans-serif; text-transform: uppercase; color: #ff6600; }
-.footer-info p { margin-bottom: 15px; font-size: 16px; line-height: 1.6; }
-.footer-info .tel-big { font-size: 28px; color: #fff; font-weight: bold; display: block; margin: 10px 0; }
-.map-container { width: 100%; border-radius: 15px; overflow: hidden; border: 3px solid #333; height: 300px; }
 
-.footer-socials { text-align: center; margin-top: 50px; padding-top: 30px; border-top: 1px solid #333; width: 100%; }
-.footer-socials a { font-size: 24px; margin: 0 15px; color: #fff; transition: 0.3s; }
-.footer-socials a:hover { color: #ff6600; }
+/* --- FOOTER --- */
+footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px solid #222; }
+.footer-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 60px; padding: 0 20px 80px; max-width: 1100px; margin: auto; }
+.footer-info-block { flex: 1 1 350px; text-align: center; }
+.footer-info-block h5 { color: #ff6600; font-family: 'Oswald', sans-serif; font-size: 26px; margin-bottom: 25px; text-transform: uppercase; }
+.footer-info-block p { color: #aaa; font-size: 16px; margin-bottom: 10px; }
+.tel-big { font-size: 32px; color: #fff; font-weight: bold; display: block; margin: 20px 0; transition: 0.3s; }
+.map-frame { height: 300px; border-radius: 15px; overflow: hidden; border: 1px solid #333; }
+
+.copyright { background: #000; padding: 30px; text-align: center; border-top: 1px solid #1a1a1a; }
+.copyright p { font-size: 14px; color: #555; }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 991px) {
     .burger-menu { display: flex; }
     nav ul {
-        position: absolute; top: 100%; left: 0; width: 100%; background: rgba(0, 0, 0, 0.95);
-        flex-direction: column; align-items: center; gap: 0; max-height: 0; overflow: hidden; opacity: 0; transition: 0.4s;
+        position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+        background: #000; flex-direction: column; justify-content: center;
+        transition: 0.4s; z-index: 1050; border-left: 1px solid #333;
     }
-    nav ul.show { max-height: 600px; opacity: 1; padding: 20px 0; }
-    nav ul li { width: 100%; text-align: center; }
-    nav ul li a { display: block; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    nav .nav-btn { margin-top: 20px; width: 80%; }
+    nav ul.show { right: 0; }
+    .close-menu { display: block; }
+    nav ul li a { font-size: 24px; padding: 20px; width: 100%; text-align: center; }
 }
 </style>
 </head>
@@ -152,14 +146,15 @@ footer { background: #1a1a1a; color: #bbb; padding: 70px 20px 30px; }
 
 <header>
     <div class="container">
-        <div class="logo"><a href="#inicio"><img src="https://kebapestambul.com/images/logo-kebab-estambul.png" alt="logo"></a></div>
+        <div class="logo"><a href="#inicio"><img src="https://kebapestambul.com/images/logo-kebab-estambul.png" alt="Estambul Utrera"></a></div>
         <nav>
             <div class="burger-menu" id="burger"><span></span><span></span><span></span></div>
             <ul id="nav-menu">
+                <div class="close-menu" id="close-btn">×</div>
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
-                <li><a href="#como-funciona" class="nav-link">Servicio</a></li>
-                <li><a href="#recomendados" class="nav-link">Carta</a></li>
+                <li><a href="#servicio" class="nav-link">Servicio</a></li>
+                <li><a href="#carta" class="nav-link">Carta</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 <li class="nav-btn"><a href="tel:954327191">LLAMAR AHORA</a></li>
             </ul>
@@ -167,112 +162,136 @@ footer { background: #1a1a1a; color: #bbb; padding: 70px 20px 30px; }
     </div>
 </header>
 
-<section id="inicio" class="slider">
-    <ul id="slides">
-        <li class="slide active">
-            <img src="https://kebapestambul.com/imagen/banner_inicio/1098653234-1.jpg">
-            <div class="caption">
-                <h1>EL MEJOR KEBAB DE UTRERA</h1>
-                <p>Auténtico sabor turco: Dürüm, Döner, Vegetal y mucho más.</p>
-                <a href="#recomendados" class="btn-slide">VER CARTA</a>
+<div class="slider-container" id="inicio">
+    <section class="slider">
+        <ul id="slides">
+            <li class="slide active">
+                <img src="https://kebapestambul.com/imagen/banner_inicio/1098653234-1.jpg" alt="Döner Kebab">
+                <div class="caption">
+                    <h1>EL MEJOR KEBAB</h1>
+                    <p>Sabor auténtico con la mejor carne y vegetales frescos del día.</p>
+                    <a href="#carta" class="btn-slide">VER CARTA</a>
+                </div>
+            </li>
+            <li class="slide">
+                <img src="https://kebapestambul.com/imagen/banner_inicio/203150112-6.jpg" alt="Pollo Kentucky">
+                <div class="caption">
+                    <h1>POLLO KENTUCKY</h1>
+                    <p>El crujiente más famoso de Utrera. ¡Pruébalo ahora!</p>
+                    <a href="#carta" class="btn-slide">PEDIR AHORA</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<section id="nosotros" class="about-section reveal">
+    <div class="inner-section">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <span class="section-subtitle">Pasión por la cocina turca</span>
+        <div class="about-content">
+            <p>En Kebab Estambul Utrera, transformamos ingredientes de primera calidad en experiencias únicas. Cada Döner, cada pizza y cada pieza de pollo crujiente se prepara con el compromiso de ofrecerte lo mejor de nuestra tradición.</p>
+        </div>
+    </div>
+</section>
+
+<section id="servicio" class="how-section reveal">
+    <div class="inner-section">
+        <h2 class="section-title">Cómo Funcionamos</h2>
+        <span class="section-subtitle">Rápido, Fácil y Sabroso</span>
+        <div class="how-grid">
+            <div class="how-box">
+                <i class="fas fa-utensils"></i>
+                <h3>Calidad Garantizada</h3>
+                <p>Carnes seleccionadas y salsas caseras con nuestra receta secreta.</p>
             </div>
-        </li>
-        <li class="slide">
-            <img src="https://kebapestambul.com/imagen/banner_inicio/203150112-6.jpg">
-            <div class="caption">
-                <h1>POLLO KENTUCKY CRUJIENTE</h1>
-                <p>Alitas, Muslos y Sticks preparados al momento.</p>
-                <a href="#recomendados" class="btn-slide">VER OPCIONES</a>
+            <div class="how-box">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Pedidos al Instante</h3>
+                <p>Llámanos y tu pedido estará listo en menos de lo que imaginas.</p>
             </div>
-        </li>
-    </ul>
-</section>
-
-<section id="nosotros" class="about-section">
-    <div class="about-content">
-        <h2 class="section-title">SOBRE NOSOTROS</h2>
-        <span class="section-subtitle">Tradición y calidad en Utrera</span>
-        <p>Disfruta de la comida Turca auténtica. En Kebab Estambul Utrera seleccionamos ingredientes frescos diariamente para ofrecerte el mejor sabor. Especialistas en Döner Kebab y pizzas turcas.</p>
-        <a class="btn-red" href="#recomendados">Especialidades</a>
+            <div class="how-box">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Reparto a domicilio</h3>
+                <p>Llegamos a cualquier punto de Utrera con comida caliente.</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="como-funciona" class="how-section">
-    <h2 class="section-title">NUESTRO SERVICIO</h2>
-    <div class="how-grid">
-        <div class="how-box"><i class="fas fa-utensils"></i><h5>ELIGE</h5></div>
-        <div class="how-box"><i class="fas fa-phone-alt"></i><h5>PIDE</h5></div>
-        <div class="how-box"><i class="fas fa-motorcycle"></i><h5>DISFRUTA</h5></div>
+<section id="carta" class="reveal">
+    <div class="inner-section">
+        <h2 class="section-title">Nuestras Especialidades</h2>
+        <span class="section-subtitle">Lo más pedido</span>
+        <div class="gallery-grid">
+            <div class="gallery-img">
+                <img src="https://kebapestambul.com/images/gallery/img-04.jpg" alt="Kebab">
+                <div class="img-meta">Döner Kebab Clásico</div>
+            </div>
+            <div class="gallery-img">
+                <img src="https://kebapestambul.com/images/gallery/img-02.jpg" alt="Pollo">
+                <div class="img-meta">Pollo Kentucky Especial</div>
+            </div>
+            <div class="gallery-img">
+                <img src="https://kebapestambul.com/imagen/banner_inicio/205816446-4.jpg" alt="Hamburguesas">
+                <div class="img-meta">Hamburguesas Gourmet</div>
+            </div>
+        </div>
     </div>
 </section>
 
-<section id="recomendados" class="gallery-section">
-    <h2 class="section-title">NUESTRA CARTA</h2>
-    <div class="gallery-grid">
-        <div class="gallery-img"><img src="https://kebapestambul.com/images/gallery/img-01.jpg"><div class="img-meta">Kumpir</div></div>
-        <div class="gallery-img"><img src="https://kebapestambul.com/images/gallery/img-02.jpg"><div class="img-meta">Pollo Kentucky</div></div>
-        <div class="gallery-img"><img src="https://kebapestambul.com/images/gallery/img-04.jpg"><div class="img-meta">Döner Kebab</div></div>
-    </div>
-</section>
-
-<section class="banner-section">
-    <div class="banner-txt">
-        <h2>¿Hambre? Pide ahora mismo.</h2>
-        <a href="tel:954327191" class="banner-btn">LLAMAR PARA PEDIR</a>
-    </div>
-</section>
-
-<footer id="contacto">
-    <div class="footer-container">
-        <div class="footer-info">
+<footer id="contacto" class="reveal">
+    <div class="footer-content">
+        <div class="footer-info-block">
             <h5>Contacto y Horario</h5>
-            <p>C.C. los Molinos Local 11-12<br>41710 Utrera (Sevilla)</p>
+            <p>Centro Comercial Los Molinos Local 11-12</p>
+            <p>41710 Utrera, Sevilla</p>
             <a href="tel:954327191" class="tel-big">95 432 71 91</a>
-            <p><strong>Lunes a Domingo:</strong><br>13:00 - 16:30 / 20:00 - Cierre<br><small>(Martes cerrado excepto festivos)</small></p>
+            <p><strong>Lunes a Domingo:</strong><br>13:00 - 16:30 / 20:00 - Cierre</p>
         </div>
-
-        <div class="footer-col">
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.6826038317!2d-5.7891393!3d37.1840003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd129ec606346b97%3A0x6b2e15303c72b22b!2sKebab%20Estambul!5e0!3m2!1ses!2ses!4v1700000000000" 
-                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                </iframe>
+        <div class="footer-info-block">
+            <h5>Encuéntranos</h5>
+            <div class="map-frame">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.6821216335194!2d-5.8038936!3d37.1840003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd12975949d21f83%3A0xc66c152a537f0980!2sCentro%20Comercial%20Los%20Molinos!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </div>
-
-    <div class="footer-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <p style="margin-top:20px; font-size:13px; color:#666;">© 2024 Kebab Estambul Utrera. Todos los derechos reservados.</p>
+    <div class="copyright">
+        <p>© 2024 Kebab Estambul Utrera. Creado con pasión por la buena comida.</p>
     </div>
 </footer>
 
 <script>
+    // Slider
     const slides = document.querySelectorAll('#slides li.slide');
     let currentIndex = 0;
-    function nextSlide(){
+    setInterval(() => {
         slides[currentIndex].classList.remove('active');
         currentIndex = (currentIndex + 1) % slides.length;
         slides[currentIndex].classList.add('active');
-    }
-    setInterval(nextSlide, 5000);
+    }, 5000);
 
+    // Menú
     const burger = document.getElementById('burger');
+    const closeBtn = document.getElementById('close-btn');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    burger.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-        burger.classList.toggle('active');
-    });
+    burger.onclick = () => { navMenu.classList.add('show'); document.body.style.overflow = 'hidden'; };
+    closeBtn.onclick = () => { navMenu.classList.remove('show'); document.body.style.overflow = 'auto'; };
+    navLinks.forEach(link => { link.onclick = () => { navMenu.classList.remove('show'); document.body.style.overflow = 'auto'; }; });
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('show');
-            burger.classList.remove('active');
+    // --- SCRIPT DE ANIMACIÓN AL BAJAR ---
+    const revealSections = document.querySelectorAll('.reveal');
+    const observerOptions = { threshold: 0.15 };
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
         });
-    });
+    }, observerOptions);
+    revealSections.forEach(section => { sectionObserver.observe(section); });
 </script>
 
 </body>
