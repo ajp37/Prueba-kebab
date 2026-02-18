@@ -26,11 +26,11 @@ a { text-decoration:none; }
 img { max-width:100%; display:block; }
 ul { list-style:none; }
 
-/* --- NUEVAS CLASES DE ANIMACIÓN (AJUSTE LENTO) --- */
+/* --- CLASES DE ANIMACIÓN --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 1.0s ease-out; /* Animación más lenta como pediste */
+    transition: all 1.0s ease-out;
 }
 
 .reveal.active {
@@ -83,6 +83,11 @@ section { padding: 80px 20px; text-align: center; width: 100%; }
 .inner-section { max-width: 1200px; margin: auto; }
 .section-title { font-family: 'Oswald', sans-serif; font-size: 42px; margin-bottom: 15px; text-transform: uppercase; color: #fff; }
 .section-subtitle { display: block; color: #ff6600; font-weight: bold; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
+
+/* Estilo específico para la nueva sección Carta */
+.carta-full { background: #121212; }
+.carta-container { display: flex; flex-direction: column; gap: 30px; align-items: center; max-width: 900px; margin: auto; }
+.carta-page { width: 100%; border: 1px solid #333; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 
 /* Nosotros */
 .about-section { background: #121212; }
@@ -154,7 +159,8 @@ footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px so
                 <li><a href="#inicio" class="nav-link">Inicio</a></li>
                 <li><a href="#nosotros" class="nav-link">Nosotros</a></li>
                 <li><a href="#servicio" class="nav-link">Servicio</a></li>
-                <li><a href="#carta" class="nav-link">Carta</a></li>
+                <li><a href="#especialidades" class="nav-link">Especialidades</a></li>
+                <li><a href="#carta-completa" class="nav-link">Carta</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
                 <li class="nav-btn"><a href="tel:954327191">LLAMAR AHORA</a></li>
             </ul>
@@ -170,15 +176,15 @@ footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px so
                 <div class="caption">
                     <h1>EL MEJOR KEBAB</h1>
                     <p>Sabor auténtico con la mejor carne y vegetales frescos del día.</p>
-                    <a href="#carta" class="btn-slide">VER CARTA</a>
+                    <a href="#carta-completa" class="btn-slide">VER CARTA</a>
                 </div>
             </li>
             <li class="slide">
                 <img src="https://kebapestambul.com/imagen/banner_inicio/203150112-6.jpg" alt="Pollo Kentucky">
                 <div class="caption">
-                    <h1>POLLO KENTUCKY</h1>
-                    <p>El crujiente más famoso de Utrera. ¡Pruébalo ahora!</p>
-                    <a href="#carta" class="btn-slide">PEDIR AHORA</a>
+                    <h1>Pizzas de todo tipo</h1>
+                    <p>las pizzas más famosas de Antequera. ¡Pruébalo ahora!</p>
+                    <a href="#carta-completa" class="btn-slide">VER CARTA</a>
                 </div>
             </li>
         </ul>
@@ -190,7 +196,7 @@ footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px so
         <h2 class="section-title">Nuestra Historia</h2>
         <span class="section-subtitle">Pasión por la cocina turca</span>
         <div class="about-content">
-            <p>En Kebab Estambul Utrera, transformamos ingredientes de primera calidad en experiencias únicas. Cada Döner, cada pizza y cada pieza de pollo crujiente se prepara con el compromiso de ofrecerte lo mejor de nuestra tradición.</p>
+            <p>En Kebab Puerta de Estepa, transformamos ingredientes de primera calidad en experiencias únicas. Cada kebab, cada pizza y cada hamburguesa se prepara con el compromiso de ofrecerte lo mejor de nuestra tradición.</p>
         </div>
     </div>
 </section>
@@ -213,28 +219,43 @@ footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px so
             <div class="how-box">
                 <i class="fas fa-motorcycle"></i>
                 <h3>Reparto a domicilio</h3>
-                <p>Llegamos a cualquier punto de Utrera con comida caliente.</p>
+                <p>Llegamos a cualquier punto de Antequera con comida caliente.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="carta" class="reveal">
+<section id="especialidades" class="reveal">
     <div class="inner-section">
         <h2 class="section-title">Nuestras Especialidades</h2>
         <span class="section-subtitle">Lo más pedido</span>
         <div class="gallery-grid">
             <div class="gallery-img">
                 <img src="https://kebapestambul.com/images/gallery/img-04.jpg" alt="Kebab">
-                <div class="img-meta">Döner Kebab Clásico</div>
+                <div class="img-meta">Döner Kebab</div>
             </div>
             <div class="gallery-img">
                 <img src="https://kebapestambul.com/images/gallery/img-02.jpg" alt="Pollo">
-                <div class="img-meta">Pollo Kentucky Especial</div>
+                <div class="img-meta">Pizzas</div>
             </div>
             <div class="gallery-img">
                 <img src="https://kebapestambul.com/imagen/banner_inicio/205816446-4.jpg" alt="Hamburguesas">
-                <div class="img-meta">Hamburguesas Gourmet</div>
+                <div class="img-meta">Hamburguesas</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="carta-completa" class="carta-full reveal">
+    <div class="inner-section">
+        <h2 class="section-title">Carta Completa</h2>
+        <span class="section-subtitle">Consulta todos nuestros platos</span>
+        <div class="carta-container">
+            <div class="carta-page">
+                <img src="./assets/carta1.jpg" alt="Carta Página 1">
+            </div>
+            <div class="carta-page">
+                <img src="./assets/carta2.jpg" alt="Carta Página 2">
             </div>
         </div>
     </div>
@@ -244,20 +265,20 @@ footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px so
     <div class="footer-content">
         <div class="footer-info-block">
             <h5>Contacto y Horario</h5>
-            <p>Centro Comercial Los Molinos Local 11-12</p>
-            <p>41710 Utrera, Sevilla</p>
-            <a href="tel:954327191" class="tel-big">95 432 71 91</a>
-            <p><strong>Lunes a Domingo:</strong><br>13:00 - 16:30 / 20:00 - Cierre</p>
+            <p> Alameda de Andalucía, 37</p>
+            <p>29200 Antequera, Málaga</p>
+            <a href="tel:631471041" class="tel-big">631 47 10 41</a>
+            <p><strong>Lunes a Domingo:</strong><br>13:00 - 16:00 / 19:00 - Cierre</p>
         </div>
         <div class="footer-info-block">
             <h5>Encuéntranos</h5>
             <div class="map-frame">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3178.6821216335194!2d-5.8038936!3d37.1840003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd12975949d21f83%3A0xc66c152a537f0980!2sCentro%20Comercial%20Los%20Molinos!5e0!3m2!1ses!2ses!4v1710000000000!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3185.499698072351!2d-4.5651406!3d37.02173020000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72901e860bd069%3A0x8bb488578b625b4!2sKebab-Pizzer%C3%ADa%20Puerta%20De%20Estepa!5e0!3m2!1ses!2ses!4v1771373750464!5m2!1ses!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
     <div class="copyright">
-        <p>© 2024 Kebab Estambul Utrera. Creado con pasión por la buena comida.</p>
+        <p>© 2026 Kebab Puerta de Estepa. Creado con pasión por la buena comida.</p>
     </div>
 </footer>
 
@@ -281,7 +302,7 @@ footer { background: #080808; color: #fff; padding-top: 80px; border-top: 1px so
     closeBtn.onclick = () => { navMenu.classList.remove('show'); document.body.style.overflow = 'auto'; };
     navLinks.forEach(link => { link.onclick = () => { navMenu.classList.remove('show'); document.body.style.overflow = 'auto'; }; });
 
-    // --- SCRIPT DE ANIMACIÓN AL BAJAR ---
+    // Animación al bajar
     const revealSections = document.querySelectorAll('.reveal');
     const observerOptions = { threshold: 0.15 };
     const sectionObserver = new IntersectionObserver((entries) => {
