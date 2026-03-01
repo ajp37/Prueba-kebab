@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aperitivos - Kebab Puerta de Estepa</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.11.0/css/all.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --naranja: #ff6600;
+            --oscuro: #1a1a1a;
+            --fondo: #ffffff;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Roboto', sans-serif; 
+            background-color: var(--fondo); 
+        }
+
+        /* --- HEADER --- */
+        header {
+            padding: 15px 0;
+            border-bottom: 2px solid var(--naranja);
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo img { height: 50px; }
+        .btn-volver {
+            background: var(--oscuro);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        /* --- SECCIÓN PRODUCTOS --- */
+        .carta-container {
+            max-width: 1250px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .titulo-seccion h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 40px;
+            color: var(--oscuro);
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .titulo-seccion .raya {
+            width: 60px;
+            height: 4px;
+            background: var(--naranja);
+            margin: 10px auto 0;
+        }
+
+        /* --- GRID: 6 COLUMNAS EN PC / 2 EN MÓVIL --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--naranja); }
+
+        .card-img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: #f9f9f9;
+        }
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-txt {
+            background: var(--naranja);
+            color: #fff;
+            padding: 12px 5px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-txt span {
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1100px) {
+            .menu-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .menu-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 580px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .titulo-seccion h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo"><img src="./assets/logo.png" alt="Logo"></div>
+            <a href="carta.html" class="btn-volver">← VOLVER</a>
+        </div>
+    </header>
+
+    <main class="carta-container">
+        <div class="titulo-seccion">
+            <h1>APERITIVOS</h1>
+            <div class="raya"></div>
+        </div>
+
+        <div class="menu-grid">
+            
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1103029266-8.png" alt="Nuggets"></div>
+                <div class="card-txt"><span>Nuggets de pollo (6 uds)</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1472183124-50.jpg" alt="Tapa Pequeña"></div>
+                <div class="card-txt"><span>Tapa Döner Kebap - Pequeña</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1420156755-51.jpg" alt="Patatas"></div>
+                <div class="card-txt"><span>Patatas fritas</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/983217321-123.jpg" alt="Tapa Grande"></div>
+                <div class="card-txt"><span>Tapa Döner Kebap - Grande</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1032160778-60.png" alt="Alitas"></div>
+                <div class="card-txt"><span>Alitas de pollo</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1339514262-100016.jpg" alt="Nachos Bacon"></div>
+                <div class="card-txt"><span>Nachos Bacon</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/354674502-100022.jpg" alt="Nachos Guacamole"></div>
+                <div class="card-txt"><span>Nachos con Guacamole</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/183378863-100044.png" alt="Patatas Chocolate"></div>
+                <div class="card-txt"><span>Patatas con Chocolate</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/967094816-93.jpg" alt="Finguers Mozarella"></div>
+                <div class="card-txt"><span>Finguers de Mozarella</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1076943460-92.jpg" alt="Bolitas Queso"></div>
+                <div class="card-txt"><span>Bolitas de Queso</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1317961253-119.jpg" alt="Fingers Pollo"></div>
+                <div class="card-txt"><span>Fingers de pollo</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/806163192-94.jpg" alt="Aros Cebolla"></div>
+                <div class="card-txt"><span>Aros de Cebolla</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/320532218-96.jpg" alt="Patatas Deluxe"></div>
+                <div class="card-txt"><span>Patatas Deluxe</span></div>
+            </div>
+
+            <div class="card">
+                <div class="card-img"><img src="https://kebapestambul.com/imagen/articulo/1392253181-116.jpg" alt="Samosa"></div>
+                <div class="card-txt"><span>Samosa (Vegetales)</span></div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
