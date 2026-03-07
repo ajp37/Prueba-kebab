@@ -149,6 +149,43 @@ footer { background: #1a1a1a; color: #fff; padding-top: 80px; border-top: 4px so
     .close-menu { display: block; }
     nav ul li a { color: #1a1a1a; font-size: 24px; padding: 20px; width: 100%; text-align: center; }
 }
+
+
+/* --- NUEVA SECCIÓN COLLAGE --- */
+.collage-section {
+    padding: 0; /* Sin padding para que ocupe todo el ancho */
+    line-height: 0;
+}
+
+.collage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    width: 100%;
+}
+
+.collage-item {
+    overflow: hidden;
+    height: 350px; /* Altura fija para que sea uniforme */
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    transition: transform 0.5s ease;
+}
+
+.collage-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsive: 2 columnas en tablets y 1 en móviles */
+@media (max-width: 991px) {
+    .collage-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .collage-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -280,6 +317,23 @@ footer { background: #1a1a1a; color: #fff; padding-top: 80px; border-top: 4px so
             <div class="carta-page">
                 <img src="./assets/carta2.jpg" alt="Carta Página 2">
             </div>
+        </div>
+    </div>
+</section>
+
+<section id="galeria" class="collage-section reveal">
+    <div class="collage-grid">
+        <div class="collage-item">
+            <img src="./assets/local/local1.jpg" alt="Imagen Galería 1">
+        </div>
+        <div class="collage-item">
+            <img src="./assets/local/local2.jpg" alt="Imagen Galería 2">
+        </div>
+        <div class="collage-item">
+            <img src="./assets/local/local3.webp" alt="Imagen Galería 3">
+        </div>
+        <div class="collage-item">
+            <img src="./assets/local/local4.jpg" alt="Imagen Galería 4">
         </div>
     </div>
 </section>
